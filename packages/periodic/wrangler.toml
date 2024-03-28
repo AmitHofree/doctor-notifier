@@ -1,0 +1,11 @@
+name = "doctor-notifier-periodic"
+main = "src/index.js"
+compatibility_date = "2024-03-20"
+compatibility_flags = ["nodejs_compat"]
+
+[triggers]
+crons = ["*/1 * * * *"]
+
+[[kv_namespaces]]
+binding = "STORAGE"
+id = "9cda716cb66f45eb9ccf7d8bf1d99f8a"
