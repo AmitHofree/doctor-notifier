@@ -16,14 +16,14 @@ export default {
   
 	if (newAppointmentDate && newAppointmentDate !== lastAppointmentDate) {
 	  console.log(`New appointment date found: ${newAppointmentDate}`);
-	  const isWithinNextDays = isAppointmentWithinNextDays(newAppointmentDate, 30);
+	  const isWithinNextDays = isAppointmentWithinNextDays(newAppointmentDate, 60);
   
 	  if (isWithinNextDays) {
-		console.log("Appointment is within the next 30 days, notifying users");
+		console.log("Appointment is within the next 60 days, notifying users");
 		await notifyUsers(`New available appointment date: ${newAppointmentDate}\nSchedule an appointment using the link: ${env.APPOINTMENT_URL}`, env);
 		await env.STORAGE.put("last_appointment_date", newAppointmentDate);
 	  } else {
-		console.log("New appointment date is not within the next 30 days");
+		console.log("New appointment date is not within the next 60 days");
 	  }
 	} else {
 	  console.log("No new appointment date or no change");
